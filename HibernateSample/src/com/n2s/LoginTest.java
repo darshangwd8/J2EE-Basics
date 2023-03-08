@@ -1,0 +1,28 @@
+package com.n2s;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class LoginTest {
+	public static void main(String[] args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		
+		SessionFactory factory = cfg.buildSessionFactory();
+		
+		Session session = factory.openSession();
+		
+		Transaction t = session.beginTransaction();
+		
+		Login login = new Login();
+		login.setId(19);
+		login.setPwd("secret123");
+		login.setUname("user221");
+		session.persist(login);
+		t.commit();
+		System.out.println("Data inserted");
+	}
+
+}
