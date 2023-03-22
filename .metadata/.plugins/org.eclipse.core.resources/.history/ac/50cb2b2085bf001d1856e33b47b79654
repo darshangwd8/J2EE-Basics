@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.n2s.Emp" table="user">
+    <meta attribute="class-description">This class contains Phone number details</meta>
+    <id name="userid" type="int" column="Userid">
+        <generator class="identity"></generator>
+    </id>
+    <property name="usename" type="string" not-null="true" length="100" column="Username"></property>
+    
+    <set name="phnum" table="usercontact" cascade="all">
+       <key column="Userid"></key>
+       <many-to-many column="Phoneid" unique="true" class="com.n2s.Contact"></many-to-many>
+    </set>
+  </class>
+
+</hibernate-mapping>

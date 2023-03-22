@@ -1,0 +1,43 @@
+package com.n2s;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Contact {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="phoneid")
+	private int Phoneid;
+	
+	private String Phonenum;
+	
+	private Set<Contact> phnums=new HashSet<Contact>()
+
+	public int getPhoneid() {
+		return Phoneid;
+	}
+
+	public void setPhoneid(int phoneid) {
+		Phoneid = phoneid;
+	}
+
+	public String getPhonenum() {
+		return Phonenum;
+	}
+
+	public void setPhonenum(String phonenum) {
+		Phonenum = phonenum;
+	}
+
+	public Contact(String phonenum) {
+		super();
+		Phonenum = phonenum;
+	}
+	
+	
+}
